@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #3A2E39;
 }
 
 .message {
@@ -44,4 +45,52 @@
 
 .font-face {
   font-family: 'Silkscreen';
+}
+
+.header-text {
+  margin: 0;
+  background-color: #9CDAEF;
+  padding: 7px;
+}
+
+.message-p {
+background-color: #627C85;
+border-radius: 14px;
+padding: 5px;
+}
+
+.message-li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;  
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  
+}
+
+.remove-button{
+  background-color: #daa9d585;
+  border: none;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.user-input {
+  border-radius: 20px;
+  width: 30%;
+  background-color: #daa9d585;
+  border: none;
+  padding: 10px;
+  color: #000000;
+  margin-bottom: 13px;
+}
+
+.submitButton {
+  margin-left: 10px;
+  padding: 9px;
+  background-color: #daa9d585;
+  border: none;
+  border-radius: 50px;
 }

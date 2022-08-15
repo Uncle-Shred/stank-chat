@@ -55,24 +55,28 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1 className='font-face'>stank chat 42</h1>
+      <div className="header-div">
+        <header className='header'>
+          <h1 className='font-face header-text'>stank chat 42</h1>
         </header>  
+      </div>
         <div className="message">   
           {
             message.map((msg) => {
               return (
-                <li key={msg.key}>
-                  <p className='font-face'>{msg.name}</p>
-                  <button onClick={() => { handleRemoveMsg(msg.key) }}>X</button>
+                <li key={msg.key} className='message-li'>
+                  <p className='font-face message-p'>{msg.name}</p>
+                  <button className='remove-button' onClick={() => { handleRemoveMsg(msg.key) }}>🙅🏼</button>
                 </li>
+              
+                  
               )
             })
           }
       </div> 
-        <form>
-          <input type="text" id='newMessage' placeholder='Say Something nice' className='font-face' onChange={handleChangeInput} />
-          <button onClick={handleSubmit}>🦨</button>
+        <form className='form'>
+          <input type="text" id='newMessage' placeholder='Say Something nice' className='font-face user-input' onChange={handleChangeInput} />
+          <button onClick={handleSubmit} className='submitButton'>🦨</button>
         </form>
        
     </div>
