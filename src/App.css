@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.message {
+  height: calc(100vh - 40px - 23px - 42px);
+  overflow-y: auto;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +40,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.font-face {
+  font-family: 'Silkscreen';
 }
