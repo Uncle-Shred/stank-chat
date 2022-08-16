@@ -1,3 +1,5 @@
+//https://ephemeral-nougat-0b8b18.netlify.app/
+
 import './App.css';
 import firebase from './firebase';
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
@@ -6,7 +8,6 @@ import { useState, useEffect } from 'react';
 function App() {
   const [message,  setMessage] = useState([]);
   const [userInput, setUserInput] = useState('');
-  const [firstName, setFirstName] = useState('');
   useEffect( () => {
     // database details
     const database = getDatabase(firebase)
@@ -44,7 +45,7 @@ function App() {
       //add userInput to our firebase
       push(dbRef, userInput)
       // clear userInput
-      setUserInput('')
+      setUserInput('');
     }
   }
 
@@ -75,10 +76,37 @@ function App() {
             })
           }
       </div> 
-        <form className='form' onSubmit={handleSubmit}>
-         <input type="text" id='newMessage' placeholder='Say Something nice' className='font-face user-input' onChange={handleChangeInput} required />
-          <button onClick={handleSubmit} type='submit' className='submitButton'>💩</button>
+        <form action='submit' className='form' >
+          <label htmlFor="newMessage"></label>
+         <input 
+         type="text" 
+         id='newMessage' 
+         placeholder='Say Something nice' 
+         className='font-face user-input' 
+         onChange={handleChangeInput}
+         value={userInput}
+         required />
+
+          <button 
+          onClick={handleSubmit} 
+          type='submit' 
+          className='submitButton'>
+            💩
+          </button>
         </form>
+      <div>
+  
+          {/* <input
+            id="last_name"
+            name="last_name"
+            type="text"
+            value={lastName}
+            onChange={event => setLastName(event.target.value)}
+          /> */}
+{/* 
+          <button type="submit">Submit form</button>
+        </form> */}
+      </div>
        
     </div>
   );
