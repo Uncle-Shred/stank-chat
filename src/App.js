@@ -5,6 +5,7 @@ import firebase from './firebase';
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import { useState, useEffect } from 'react';
 
+
 function App() {
   const [message, setMessage] = useState([]);
   const [userInput, setUserInput] = useState('');
@@ -12,6 +13,7 @@ function App() {
     // database details
     const database = getDatabase(firebase)
     // variable to reference location in database
+    // connct to firebase on component mount
     const dbRef = ref(database);
     onValue(dbRef, (response) => {
       console.log(response.val());
@@ -22,14 +24,14 @@ function App() {
         newState.push(
           {
             key: key,
-            name: data[key]
+            name: data[key],
           }
         )
       }
       setMessage(newState);
     })
   }, [])
-  
+
   const handleChangeInput = (e) => {
     setUserInput(e.target.value)
   }
@@ -47,6 +49,19 @@ function App() {
       // clear userInput
       setUserInput('');
     }
+  }
+
+  
+  // this grabs the time and adds it as another p element in the chat box
+  const date = new Date();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+  const time = `${padTo2Digits(hours)}:${padTo2Digits(minutes)}:${padTo2Digits(
+    seconds,
+  )}`;
+  function padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
   }
 
   const handleRemoveMsg = (msgId) => {
@@ -68,21 +83,22 @@ function App() {
             return (
               <li key={msg.key} className='message-li'>
                 <p className='font-face message-p'>{msg.name}</p>
+                <p className='font-face message-p message-time'>{time}</p>
                 <button className='remove-button' onClick={() => { handleRemoveMsg(msg.key) }}>🚽</button>
               </li>
-
-
             )
           })
         }
       </div>
-      <form action='submit' className='form' >
+      <div>
+        <form action='submit' className='form' >
 
-        <label htmlFor="newMessage"></label>
-        <input type="text" id='newMessage' placeholder='Say Something nice' className='font-face user-input' onChange={handleChangeInput} value={userInput}required />
+          <label htmlFor="newMessage"></label>
+          <input type="text" id='newMessage' placeholder='Say Something nice' className='font-face user-input' onChange={handleChangeInput} value={userInput} required />
 
-        <button onClick={handleSubmit} type='submit' className='submitButton'>💩</button>
-      </form>
+          <button onClick={handleSubmit} type='submit' className='submitButton'>💩</button>
+        </form>
+      </div>
     </div>
   );
 }

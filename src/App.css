@@ -61,6 +61,15 @@ max-width: 80%;
 word-wrap: break-word;
 }
 
+.message-time {
+  margin-left: 10px;
+  font-size: 10px;
+}
+
+.message-time p {
+  font-size: 2px;
+}
+
 .message-li {
   display: flex;
   align-items: center;
