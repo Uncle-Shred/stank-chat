@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 function App() {
   const [message,  setMessage] = useState([]);
   const [userInput, setUserInput] = useState('');
+  const [firstName, setFirstName] = useState('');
   useEffect( () => {
     // database details
     const database = getDatabase(firebase)
@@ -66,7 +67,7 @@ function App() {
               return (
                 <li key={msg.key} className='message-li'>
                   <p className='font-face message-p'>{msg.name}</p>
-                  <button className='remove-button' onClick={() => { handleRemoveMsg(msg.key) }}>🙅🏼</button>
+                  <button className='remove-button' onClick={() => { handleRemoveMsg(msg.key) }}>🚽</button>
                 </li>
               
                   
@@ -74,9 +75,9 @@ function App() {
             })
           }
       </div> 
-        <form className='form'>
-          <input type="text" id='newMessage' placeholder='Say Something nice' className='font-face user-input' onChange={handleChangeInput} />
-          <button onClick={handleSubmit} className='submitButton'>🦨</button>
+        <form className='form' onSubmit={handleSubmit}>
+         <input type="text" id='newMessage' placeholder='Say Something nice' className='font-face user-input' onChange={handleChangeInput} required />
+          <button onClick={handleSubmit} type='submit' className='submitButton'>💩</button>
         </form>
        
     </div>
