@@ -6,9 +6,9 @@ import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import { useState, useEffect } from 'react';
 
 function App() {
-  const [message,  setMessage] = useState([]);
+  const [message, setMessage] = useState([]);
   const [userInput, setUserInput] = useState('');
-  useEffect( () => {
+  useEffect(() => {
     // database details
     const database = getDatabase(firebase)
     // variable to reference location in database
@@ -17,7 +17,6 @@ function App() {
       console.log(response.val());
       const newState = [];
       const data = response.val();
-
       //Loop over the data object and push each message into an empty array
       for (let key in data) {
         newState.push(
@@ -30,6 +29,7 @@ function App() {
       setMessage(newState);
     })
   }, [])
+  
   const handleChangeInput = (e) => {
     setUserInput(e.target.value)
   }
@@ -60,54 +60,29 @@ function App() {
       <div className="header-div">
         <header className='header'>
           <h1 className='font-face header-text'>stank chat 42</h1>
-        </header>  
+        </header>
       </div>
-        <div className="message">   
-          {
-            message.map((msg) => {
-              return (
-                <li key={msg.key} className='message-li'>
-                  <p className='font-face message-p'>{msg.name}</p>
-                  <button className='remove-button' onClick={() => { handleRemoveMsg(msg.key) }}>🚽</button>
-                </li>
-              
-                  
-              )
-            })
-          }
-      </div> 
-        <form action='submit' className='form' >
-          <label htmlFor="newMessage"></label>
-         <input 
-         type="text" 
-         id='newMessage' 
-         placeholder='Say Something nice' 
-         className='font-face user-input' 
-         onChange={handleChangeInput}
-         value={userInput}
-         required />
+      <div className="message">
+        {
+          message.map((msg) => {
+            return (
+              <li key={msg.key} className='message-li'>
+                <p className='font-face message-p'>{msg.name}</p>
+                <button className='remove-button' onClick={() => { handleRemoveMsg(msg.key) }}>🚽</button>
+              </li>
 
-          <button 
-          onClick={handleSubmit} 
-          type='submit' 
-          className='submitButton'>
-            💩
-          </button>
-        </form>
-      <div>
-  
-          {/* <input
-            id="last_name"
-            name="last_name"
-            type="text"
-            value={lastName}
-            onChange={event => setLastName(event.target.value)}
-          /> */}
-{/* 
-          <button type="submit">Submit form</button>
-        </form> */}
+
+            )
+          })
+        }
       </div>
-       
+      <form action='submit' className='form' >
+
+        <label htmlFor="newMessage"></label>
+        <input type="text" id='newMessage' placeholder='Say Something nice' className='font-face user-input' onChange={handleChangeInput} value={userInput}required />
+
+        <button onClick={handleSubmit} type='submit' className='submitButton'>💩</button>
+      </form>
     </div>
   );
 }
