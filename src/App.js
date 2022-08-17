@@ -1,5 +1,3 @@
-//https://ephemeral-nougat-0b8b18.netlify.app/
-
 import './App.css';
 import firebase from './firebase';
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
@@ -75,6 +73,7 @@ function App() {
 
   return (
     <div className="App">
+
       <div className="header-div">
         <header className='header'>
           <h1 className='font-face header-text'>stank chat 42</h1>
@@ -102,6 +101,7 @@ function App() {
           <button onClick={handleSubmit} type='submit' className='submitButton'>💩</button>
         </form>
       </div>
+
     </div>
   );
 }
