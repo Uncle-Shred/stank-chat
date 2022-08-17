@@ -43,17 +43,17 @@
   }
 }
 
-.font-face {
+.fontFace {
   font-family: 'Silkscreen', cursive;
 }
 
-.header-text {
+.headerText {
   margin: 0;
   background-color: #9CDAEF;
   padding: 7px;
 }
 
-.message-p {
+.messageP {
 background-color: #627C85;
 border-radius: 14px;
 padding: 5px;
@@ -61,16 +61,16 @@ max-width: 80%;
 word-wrap: break-word;
 }
 
-.message-time {
+.messageTime {
   margin-left: 10px;
   font-size: 10px;
 }
 
-.message-time p {
+.messageTime p {
   font-size: 2px;
 }
 
-.message-li {
+.messageLi {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,14 +81,14 @@ word-wrap: break-word;
   
 }
 
-.remove-button{
+.removeButton{
   background-color: #daa9d585;
   border: none;
   border-radius: 50%;
   margin-left: 10px;
 }
 
-.user-input {
+.userInput {
   border-radius: 20px;
   width: 30%;
   background-color: #daa9d585;
