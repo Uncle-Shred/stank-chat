@@ -44,8 +44,9 @@
 }
 
 .font-face {
-  font-family: 'Silkscreen';
+  font-family: 'Silkscreen', cursive;
 }
+
 
 .header-text {
   margin: 0;

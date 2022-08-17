@@ -5,7 +5,6 @@ import firebase from './firebase';
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import { useState, useEffect } from 'react';
 
-
 function App() {
   const [message, setMessage] = useState([]);
   const [userInput, setUserInput] = useState('');
@@ -50,16 +49,20 @@ function App() {
       setUserInput('');
     }
   }
-
   
-  // this grabs the time and adds it as another p element in the chat box
+  // variable as a promise to initiate time
   const date = new Date();
+  //this grabs the time by hours/minutes/seconds
   const hours = date.getHours();
   const minutes = date.getMinutes();
   const seconds = date.getSeconds();
+
+  // padTo2Digits just makes sure it gives the time two digits like 14:29:15
   const time = `${padTo2Digits(hours)}:${padTo2Digits(minutes)}:${padTo2Digits(
     seconds,
   )}`;
+
+  // function that returns the time plugged into the li below
   function padTo2Digits(num) {
     return num.toString().padStart(2, '0');
   }
