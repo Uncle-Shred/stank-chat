@@ -71,19 +71,19 @@ function App() {
   return (
     <div className="App">
 
-      <div className="header-div">
+      <div className="headerDiv">
         <header className='header'>
-          <h1 className='font-face header-text'>stank chat 42</h1>
+          <h1 className='fontFace headerText'>stank chat 42</h1>
         </header>
       </div>
       <div className="message">
         {
           message.map((msg) => {
             return (
-              <li key={msg.key} className='message-li'>
-                <p className='font-face message-p'>{msg.name}</p>
-                <p className='font-face message-p message-time'>{time}</p>
-                <button className='remove-button' onClick={() => { handleRemoveMsg(msg.key) }}>🚽</button>
+              <li key={msg.key} className='messageLi'>
+                <p className='fontFace messageP'>{msg.name}</p>
+                <p className='fontFace messageP messageTime'>{time}</p>
+                <button className='removeButton' onClick={() => { handleRemoveMsg(msg.key) }}>🚽</button>
               </li>
             )
           })
@@ -93,7 +93,7 @@ function App() {
         <form action='submit' className='form' >
 
           <label htmlFor="newMessage"></label>
-          <input type="text" id='newMessage' placeholder='Say Something nice' className='font-face user-input' onChange={handleChangeInput} value={userInput} required />
+          <input type="text" id='newMessage' placeholder='be nice' className='fontFace userInput' onChange={handleChangeInput} value={userInput} required />
 
           <button onClick={handleSubmit} type='submit' className='submitButton'>💩</button>
         </form>
