@@ -43,20 +43,23 @@
   }
 }
 
-<<<<<<< HEAD
+
 .fontFace {
   font-family: 'Silkscreen', cursive;
 }
 
 
 .headerText {
-=======
+    margin: 0;
+    background-color: #9CDAEF;
+    padding: 7px;
+}
+
 .fontFace {
   font-family: 'Silkscreen', cursive;
 }
 
 .headerText {
->>>>>>> b03d3bb1e470337c64a28a18219f95a25c935ae3
   margin: 0;
   background-color: #9CDAEF;
   padding: 7px;
