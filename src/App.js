@@ -96,7 +96,7 @@ function App() {
         <form action='submit' className='form' >
 
           <label htmlFor="newMessage"></label>
-          <input type="text" id='newMessage' placeholder='Say Something nice' className='font-face user-input' onChange={handleChangeInput} value={userInput} required />
+          <input type="text" id='newMessage' placeholder='be nice' className='font-face user-input' onChange={handleChangeInput} value={userInput} required />
 
           <button onClick={handleSubmit} type='submit' className='submitButton'>💩</button>
         </form>
